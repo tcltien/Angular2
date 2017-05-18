@@ -1,0 +1,26 @@
+import { Component }   from '@angular/core';
+
+import { HeroService } from './hero.service';
+import { UserService } from '../User/user.service';
+
+@Component({
+  template: `
+    <h2>Heroes of {{userName}}</h2>
+    <router-outlet></router-outlet>
+    <hero-form></hero-form>
+  `,
+  providers: [ HeroService ]
+})
+export class HeroComponent {
+  userName = '';
+  constructor(userService: UserService) {
+    this.userName = userService.userName;
+  }
+}
+
+
+/*
+Copyright 2017 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
